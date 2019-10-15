@@ -1,4 +1,4 @@
-# Deep_Learning_Emotion_Recognition
+# Deep Learning Emotion Recognition
 Homework for BME's Deep Learning in Practice with Python and LUA course
 
 **Team: DLBH**
