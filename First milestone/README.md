@@ -1,4 +1,4 @@
-#Database
+# Database
 
 We used the fer2013 database from Kaggle.
 

@@ -1,11 +1,11 @@
 # Deep_Learning_Emotion_Recognition
 Homework for BME's Deep Learning in Practice with Python and LUA course
 
-##Team: DLBH
+## Team: DLBH
 
-##Homework topic: Emotion recognition with Deep Learning
+## Homework topic: Emotion recognition with Deep Learning
 
-##Members:
+## Members:
 Gajak Tibor Istvan
 Hannos Attila
 Kerekes Akos
