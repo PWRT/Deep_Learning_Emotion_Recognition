@@ -1,0 +1,16 @@
+html { 
+  background: url(images/welcome.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.welcome{
+	padding: 20%;    	
+	color: white;
+	text-align: center;
+	font-size: 1500%;
+
+
+}

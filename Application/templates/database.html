@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<link rel="icon" href="../static/images/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<title>Emotion Recognition</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../static/w3.css">
+<link rel="stylesheet" href="../static/css.css">
+<link rel="stylesheet" href="../static/font-awesome.min.css">
+<link rel="stylesheet" href="../static/table-column-styles.css">
+<link rel="stylesheet" href="../static/pic.css">
+<link rel="stylesheet" href="../static/scroll.css">
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {width: 120px;background: #222;}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {margin-left: 125px}
+@media only screen and (max-width: 600px) { #main {margin-left: 5px}}
+</style>
+<body class="w3-black">
+
+<!-- Icon Bar (Sidebar - hidden on small screens) -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+  <!-- Avatar image in top left corner -->
+  <img src="../static/images/logo.jpg" style="width:100%">
+  <a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-eye w3-xxlarge"></i>
+    <p>Video</p>
+  </a>
+  <a href="evaluation.html" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fas fa-database w3-xxlarge"></i>
+    <p>Evaluation</p>
+  </a>
+  <a href="database.html" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fas fa-history w3-xxlarge"></i>
+    <p>Logs</p>
+  </a>
+</nav>
+
+<!-- Navbar on small screens (Hidden on medium and large screens) -->
+<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+    <a href="index.html" class="w3-bar-item w3-button" style="width:25% !important">Vide</a>
+    <a href="evaluation.html" class="w3-bar-item w3-button" style="width:30% !important">Evaluation</a>
+    <a href="database.html" class="w3-bar-item w3-button" style="width:25% !important">Logs</a>
+  </div>
+</div>
+
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+<!-- Header/Home -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+  	
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages %}
+				<h2 class="w3-text-light-grey">{{ message }}</h2>
+		{% endfor %}
+	{% endif %}
+{% endwith %}
+
+<title>Emotions db</title>
+<body>
+<center><table class="column-styles-left">
+  <colgroup span="2" class="standard"></colgroup>
+  <colgroup span="1" class="featured"></colgroup>
+  <colgroup span="2" class="standard"></colgroup>	
+  <form method=post enctype=multipart/form-data>  
+	<thead>
+		<tr>
+			<th></th>
+			<th> <input  type="date" placeholder="Kezdő dátum" name="start_date" min="2000-01-01"></th>
+			<th> <input  type="date" placeholder="Vég dátum" name="end_date" min="2000-01-01"> </th>
+			<th> <button class="w3-button w3-light-grey w3-padding-large" type="reset" value="Reset"> <i class="fas fa-trash-alt"></i></button> <button class="w3-button w3-light-grey w3-padding-large" type="submit" value="Submit"> <i class="fas fa-filter"></i></button> </th>	
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+  </form>
+</table> 
+
+{% if result %}	
+<table class="column-styles">
+  <colgroup span="2" class="standard"></colgroup>
+  <colgroup span="1" class="featured"></colgroup>
+  <colgroup span="2" class="standard"></colgroup>	
+    <thead>
+		<tr>
+			<th>Timestamp</th>
+			<th>Emotions</th>
+		</tr>
+	</thead>
+	<tbody>		
+		{% for row in result %}
+		<tr>
+			<td> {{ row.Time}}</td>
+			<td> {{ row.Emotion }}</td>
+		</tr>
+		{% endfor %}
+		{% endif %}
+	</tbody>
+</table></center>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- The Close Button -->
+  <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+
+  <!-- Modal Content (The Image) -->
+  <img class="modal-content" id="img01">
+
+  <!-- Modal Caption (Image Text) -->
+  <div id="caption"></div>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = $('.myImg');
+var modalImg = $("#img01");
+var captionText = document.getElementById("caption");
+$('.myImg').click(function(){
+    modal.style.display = "block";
+    var newSrc = this.src;
+    modalImg.attr('src', newSrc);
+    captionText.innerHTML = this.alt;
+});
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+</script>
+
+
+</body>
+<!-- END PAGE CONTENT -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge" id="main">
+	<p class="w3-small">Made for: 2019 autumn BME Deep Learning in practise subject.</a></p>
+	<p class="w3-small">Made by: Gaják Tibor, Kerekes Ákos, Hannos Attila</a></p>
+<!-- End footer -->
+</footer>
+
+</body>
+</html>

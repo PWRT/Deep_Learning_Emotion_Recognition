@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<link rel="icon" href="../static/images/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<title>EmotionRecognition</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../static/w3.css">
+<link rel="stylesheet" href="../static/css.css">
+<link rel="stylesheet" href="../static/font-awesome.min.css">
+<link rel="stylesheet" href="../static/table-column-styles.css">
+<link rel="stylesheet" href="../static/pic.css">
+<link rel="stylesheet" href="../static/scroll.css">
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {width: 120px;background: #222;}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {margin-left: 125px}
+@media only screen and (max-width: 600px) { #main {margin-left: 5px}}
+</style>
+<body class="w3-black">
+
+<!-- Icon Bar (Sidebar - hidden on small screens) -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+  <!-- Avatar image in top left corner -->
+  <img src="../static/images/logo.jpg" style="width:100%">
+  <a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-eye w3-xxlarge"></i>
+    <p>Video</p>
+  </a>
+  <a href="evaluation.html" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fas fa-database w3-xxlarge"></i>
+    <p>Evaluation</p>
+  </a>
+  <a href="database.html" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fas fa-history w3-xxlarge"></i>
+    <p>Logs</p>
+  </a>
+</nav>
+
+<!-- Navbar on small screens (Hidden on medium and large screens) -->
+<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+    <a href="index.html" class="w3-bar-item w3-button" style="width:25% !important">Video</a>
+    <a href="evaluation.html" class="w3-bar-item w3-button" style="width:30% !important">Evaluation</a>
+    <a href="database.html" class="w3-bar-item w3-button" style="width:25% !important">Logs</a>
+  </div>
+</div>
+
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+<!-- Header/Home -->
+<header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+<title>Certification of lecture</title>
+</header>
+    <h1> Rating of the lecture </h1>
+<body>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+var num_hap = {{ result[0]["Count(Emotion)"]}}
+var num_sad = {{ result[1]["Count(Emotion)"]}}
+var num_nat = {{ result[2]["Count(Emotion)"]}}
+var num_fear = {{ result[3]["Count(Emotion)"]}}
+var num_disg = {{ result[4]["Count(Emotion)"]}}
+var num_angry = {{ result[5]["Count(Emotion)"]}}
+var num_surp = {{ result[6]["Count(Emotion)"]}}
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Emotion', 'Counter'],
+  ['Happy', num_hap],
+  ['Angry', num_angry],
+  ['Sad', num_sad],
+  ['Natural', num_nat],
+  ['Surprise', num_surp],
+  ['Fear', num_fear],
+  ['Disgust', num_disg]
+]);
+
+  if(33 < (num_hap / (num_hap + num_angry + num_sad + num_nat + num_surp + num_fear + num_disg))*100) {
+      //document.getElementById("smile").style.display = 0;
+       document.getElementById("text").innerHTML = "  Good Response!";
+       document.getElementById("smile").innerHTML = "&#128512;";
+  }
+  else if(33 < (num_nat / (num_hap + num_angry + num_sad + num_nat + num_surp + num_fear + num_disg))*100){
+       document.getElementById("text").innerHTML = "  Natural!";
+       document.getElementById("smile").innerHTML = "&#128528;";
+  }
+  else if(34 < ((num_angry + num_sad + num_fear + num_disg) / (num_hap + num_angry + num_sad + num_nat + num_surp + num_fear + num_disg)*100)){
+       document.getElementById("text").innerHTML = "  Bad lecture!";
+       document.getElementById("smile").innerHTML = "&#128577;";
+  }
+
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Evaluation of lecture', 'width':1600, 'height':900};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('home'));
+  chart.draw(data, options);
+}
+</script>
+
+<pre id="smile"  style='font-size:100px;'>&#128512; &#128528; &#128577;</pre>
+<pre id="text"> Good Response           Natural              Bad lecture</pre>
+
+
+<script>
+    function showDiv(divId, element)
+{
+    document.getElementById(divId).style.display = element.value == 1 ? 'block' : 'none';
+}
+</script>
+
+</body>
+<!-- END PAGE CONTENT -->
+</div>
+<!-- Footer -->
+<footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge" id="main">
+	<p class="w3-small">Made for: 2019 autumn BME Deep Learning in practise subject.</a></p>
+	<p class="w3-small">Made by: Gaják Tibor, Kerekes Ákos, Hannos Attila</a></p>
+<!-- End footer -->
+</footer>
+
+</body>
+</html>

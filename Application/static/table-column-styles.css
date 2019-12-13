@@ -1,0 +1,102 @@
+/* column styles */
+
+.column-styles {
+	font-family:Georgia, "Times New Roman", Times, serif;
+	color:#333;
+	border-collapse: collapse;}
+	
+table.column-styles tbody { display: block; }
+
+table.column-styles thead { display: block; }
+
+table.column-styles tbody {
+    max-height:500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+table.column-styles thead {
+	font-weight:bold;
+    max-height:500px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.column-styles .standard {
+	background-color:#efefef;}
+
+.column-styles .featured {
+	background-color:#efefef;}
+
+.column-styles th, .column-styles td {
+	text-align:center;
+	width:300px;}
+
+.column-styles th {
+	font-weight:bold;
+	font-size:160%;
+	text-shadow: 1px 1px #fff;
+	padding: 8px;}
+
+.column-styles td {
+	padding: 12px 8px 12px 8px;
+	font-size:120%;
+	border-left:1px solid #fff;
+	border-bottom:1px solid #fff;}
+
+.column-styles tfoot td {
+	font-weight:bold;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:160%;
+	color:#477109;}
+
+/* column styles left */
+
+.column-styles-left {
+	font-family:Georgia, "Times New Roman", Times, serif;
+	color:#333;
+	border-collapse: collapse;}
+	
+table.column-styles-left tbody { display: block; }
+
+table.column-styles-left thead { display: block; }
+
+table.column-styles-left tbody {
+    max-height:500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+table.column-styles-left thead {
+	font-weight:bold;
+    max-height:500px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.column-styles-left .standard {
+	background-color:#efefef;}
+
+.column-styles-left .featured {
+	background-color:#efefef;}
+
+.column-styles-left th, .column-styles-left td {
+	width:300px;}
+
+.column-styles-left th {
+	font-weight:bold;
+	font-size:140%;
+	text-shadow: 1px 1px #fff;
+	padding: 8px;}
+
+.column-styles-left td {
+	padding: 12px 8px 12px 8px;
+	font-size:80%;
+	border-left:1px solid #fff;
+	border-bottom:1px solid #fff;}
+
+.column-styles-left tfoot td {
+	font-weight:bold;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:140%;
+	color:#477109;}
