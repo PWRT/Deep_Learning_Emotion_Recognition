@@ -103,3 +103,5 @@ venv.bak/
 # mypy
 .mypy_cache/
 /First milestone/fer2013.csv
+/Application/.idea
+/Application/Database/emotions.mwb.bak
