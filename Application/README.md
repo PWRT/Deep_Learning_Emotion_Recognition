@@ -20,4 +20,5 @@ For flawless operation we used the below programs and settings:
 		2, pymysql, for the database
 		3, opencv-python, for the image processing
 
+The weights model.h5 find my google drive: https://drive.google.com/drive/folders/1haoI-QBrXVWJQ2KH0hZ-npU9X5DDFHPS?usp=sharing
 		
