@@ -10,7 +10,7 @@ If you want to run the Jupyter notebook, please download the database:
 
 # Train
 
-Created Convolutional neural networks and train the model.
+Created Convolutional neural networks and train the model, used Keras moduls.
 Test the performance of the trained model.
 
 * train_emotion_recognition_tfboard.ipynb - We trained the model with tensorboard

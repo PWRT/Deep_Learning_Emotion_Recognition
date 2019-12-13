@@ -10,8 +10,8 @@ For flawless operation we used the below programs and settings:
 * 2, XAMPP Windows installation
 
 * 3, MySQL Workbench installation:
-	1, Make a new connection, as DLBH
-	2, Open model-> forward engine
+	* 1, Make a new connection, as DLBH
+	* 2, Open model -> forward engine
 
 * 4, After server creation, run the program in PyCharm, where user have to 
 	* 1, load interpreters
