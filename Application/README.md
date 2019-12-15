@@ -2,6 +2,14 @@
 
 **Lecture evaluate system based on emotion recognition application**
 
+This application based on flask webserver with authentication with the following id:
+*username: DLHB
+*passworld: emotionrecognition
+
+*First page we can see the camerascrren with the detected faces
+*Second page we can check the result of the evaluated lecture
+*final page we can see the saved database
+
 Our projects runs in Windows 10 environment.
 For flawless operation we used the below programs and settings:
 
@@ -21,4 +29,6 @@ For flawless operation we used the below programs and settings:
 		* 3, opencv-python, for the image processing
 
 The weights model.h5 find my google drive: https://drive.google.com/drive/folders/1haoI-QBrXVWJQ2KH0hZ-npU9X5DDFHPS?usp=sharing
+
+
 		

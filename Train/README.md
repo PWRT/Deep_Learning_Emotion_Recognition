@@ -10,12 +10,24 @@ If you want to run the Jupyter notebook, please download the database:
 
 # Train
 
-Created Convolutional neural networks and train the model, used Keras moduls.
-Test the performance of the trained model.
+Convolutional neural networks were trained and tested with Keras moduls.
 
 * train_emotion_recognition_tfboard.ipynb - We trained the model with tensorboard
 * train_emotion_recognition.ipynb - We changed the parameters and the network and get a better train result
 * Hyperparameters_Optimization.ipynb - Finally we made some Hyperparameters Optimization, used hyperas and hyperopt python moduls
+
+**Training steps:**
+* Preparing database:
+	* Load the csv with pandas modul
+	* visualized the dataset
+	* did some image augmentation to balanced the dataset
+	* prepare the augmented dataset for training and testing
+* Create a model with Keras:
+	* Used Convolusion layers, Danse, dropout, Batchnormalization
+* Did some hyperparameters optimalizations for a better performance 
+* Tested the traind model with the prepared test dataset
+* Exported the best model for the emotion recognition application
+
 
 # Logs
 * prediction.csv - Result of the training, the model runned on the test dataset
