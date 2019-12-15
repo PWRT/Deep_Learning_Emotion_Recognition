@@ -6,9 +6,9 @@ This application based on flask webserver with authentication with the following
 *username: DLHB
 *passworld: emotionrecognition
 
-*First page we can see the camerascrren with the detected faces
-*Second page we can check the result of the evaluated lecture
-*final page we can see the saved database
+* First page we can see the camerascrren with the detected faces
+* Second page we can check the result of the evaluated lecture
+* final page we can see the saved database
 
 Our projects runs in Windows 10 environment.
 For flawless operation we used the below programs and settings:
